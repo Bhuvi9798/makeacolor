@@ -1,0 +1,15 @@
+span,
+button {
+  cursor: pointer;
+}
+
+.primary {
+  display: flex;
+  justify-content: center;
+  gap: 30%;
+}
+
+button {
+  padding: 30px 100px;
+  font-size: large;
+}

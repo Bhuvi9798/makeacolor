@@ -1,0 +1,214 @@
+<div
+  [ngStyle]="{
+    'background-color':
+      'rgba(' +
+      rslider.value +
+      ',' +
+      gslider.value +
+      ',' +
+      bslider.value +
+      ',' +
+      oslider.value +
+      ')'
+  }"
+  class="color-container"
+></div>
+
+<div class="value-container">
+  <div class="rgbvalue">
+    <h2>
+      rbga({{ rslider.value }},{{ gslider.value }},{{ bslider.value }},{{
+        oslider.value
+      }})
+    </h2>
+    <span
+      mat-icon
+      matTooltip="Copy to ClipBoard"
+      appCopyToClipboard
+      [attr.aria-label]="
+        'rgba(' +
+        rslider.value +
+        ',' +
+        gslider.value +
+        ',' +
+        bslider.value +
+        ',' +
+        oslider.value +
+        ')'
+      "
+      (click)="copyRGBA()"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </span>
+  </div>
+
+  <div class="rgbvalue">
+    <h2>
+      {{ rgbaToHexa() }}
+    </h2>
+    <span
+      mat-icon
+      matTooltip="Copy to ClipBoard"
+      appCopyToClipboard
+      [attr.aria-label]="rgbaToHexa()"
+      (click)="copyHEX()"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="child">
+    <mat-card>
+      <mat-card-content>
+        <h2 class="example-h2">Red</h2>
+
+        <section class="example-section">
+          <mat-form-field class="example-margin example-width">
+            <mat-label>Value</mat-label>
+            <input matInput type="number" [(ngModel)]="rvalue" />
+          </mat-form-field>
+        </section>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-result-card">
+      <mat-card-content>
+        <h2>Choose Value</h2>
+
+        <div class="example-label-container">
+          <label id="example-name-label" class="example-name-label"
+            >Value</label
+          >
+          <label class="example-value-label">{{ rslider.value }}</label>
+        </div>
+        <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [discrete]="thumbLabel"
+          [showTickMarks]="showTicks"
+        >
+          <input matSliderThumb [(ngModel)]="rvalue" #rslider />
+        </mat-slider>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="child">
+    <mat-card>
+      <mat-card-content>
+        <h2 class="example-h2">Green</h2>
+
+        <section class="example-section">
+          <mat-form-field class="example-margin example-width">
+            <mat-label>Value</mat-label>
+            <input matInput type="number" [(ngModel)]="gvalue" />
+          </mat-form-field>
+        </section>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-result-card">
+      <mat-card-content>
+        <h2>Choose Value</h2>
+
+        <div class="example-label-container">
+          <label id="example-name-label" class="example-name-label"
+            >Value</label
+          >
+          <label class="example-value-label">{{ gslider.value }}</label>
+        </div>
+        <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [discrete]="thumbLabel"
+          [showTickMarks]="showTicks"
+        >
+          <input matSliderThumb [(ngModel)]="gvalue" #gslider />
+        </mat-slider>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="child">
+    <mat-card>
+      <mat-card-content>
+        <h2 class="example-h2">Blue</h2>
+
+        <section class="example-section">
+          <mat-form-field class="example-margin example-width">
+            <mat-label>Value</mat-label>
+            <input matInput type="number" [(ngModel)]="bvalue" />
+          </mat-form-field>
+        </section>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-result-card">
+      <mat-card-content>
+        <h2>Choose Value</h2>
+
+        <div class="example-label-container">
+          <label id="example-name-label" class="example-name-label"
+            >Value</label
+          >
+          <label class="example-value-label">{{ bslider.value }}</label>
+        </div>
+        <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [max]="max"
+          [min]="min"
+          [step]="step"
+          [discrete]="thumbLabel"
+          [showTickMarks]="showTicks"
+        >
+          <input matSliderThumb [(ngModel)]="bvalue" #bslider />
+        </mat-slider>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="child">
+    <mat-card>
+      <mat-card-content>
+        <h2 class="example-h2">Alpha</h2>
+
+        <section class="example-section">
+          <mat-form-field class="example-margin example-width">
+            <mat-label>Value</mat-label>
+            <input matInput type="number" [(ngModel)]="ovalue" />
+          </mat-form-field>
+        </section>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-result-card">
+      <mat-card-content>
+        <h2>Choose Value</h2>
+
+        <div class="example-label-container">
+          <label id="example-name-label" class="example-name-label"
+            >Value</label
+          >
+          <label class="example-value-label">{{ oslider.value }}</label>
+        </div>
+        <mat-slider
+          class="example-margin"
+          [disabled]="disabled"
+          [max]="opacitymax"
+          [min]="min"
+          [step]="opacitystep"
+          [discrete]="thumbLabel"
+          [showTickMarks]="showTicks"
+        >
+          <input matSliderThumb [(ngModel)]="ovalue" #oslider />
+        </mat-slider>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
